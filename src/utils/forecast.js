@@ -7,11 +7,11 @@ const forecast = (latitude, longitude, callback) => {
         if(error){
             callback("Unable to connect to Weatherstack service!", undefined)
         } else if(body.error) {
-            console.log("Unable to find location!")
             callback("Unable to find location!", undefined)
         } else {
             const currentData = body.current
-            callback(undefined, currentData.weather_descriptions[0]+". It is currently "+currentData.temperature+" degrees out. Although it feels like "+currentData.feelslike)
+            callback(undefined, currentData.weather_descriptions[0]+". It is currently "+currentData.temperature+" degrees out. Although it feels like "+
+                                currentData.feelslike+". The humidity is "+currentData.humidity+"%")
         }
     })
 }
